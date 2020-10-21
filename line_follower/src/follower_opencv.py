@@ -33,9 +33,9 @@ class CVImgSubPub:
         top = find_middle_white(image, TOP_HORIZONTAL)
         bottom = find_middle_white(image, IMAGE_HEIGHT - 1)
         center_pub.publish((top + bottom) // 2)
-        slope_pub.publish((IMAGE_HEIGHT - TOP_HORIZONTAL) / (top - bottom))
+        slope_pub.publish((top - bottom) / (IMAGE_HEIGHT - TOP_HORIZONTAL))
         self.image_pub.publish(self.bridge.cv2_to_imgmsg(image))
-        print((top + bottom) // 2, (IMAGE_HEIGHT - TOP_HORIZONTAL) / (top - bottom))
+        print((top + bottom) // 2, (top - bottom) / (IMAGE_HEIGHT - TOP_HORIZONTAL))
 
     
         
