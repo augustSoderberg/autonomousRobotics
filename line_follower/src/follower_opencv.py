@@ -10,13 +10,13 @@ class CVImgSubPub:
 
     def image_callback(self, msg):
         image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-        lower_yellow = numpy.array([50, 50, 170])
-        upper_yellow = numpy.array([255, 255, 190])
-        mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
-        cv2.bitwise_and(image, image, image, mask=mask)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        lower_yellow = numpy.array([18, 0, 0])
+        upper_yellow = numpy.array([50, 255, 255])
+        image = cv2.inRange(image, lower_yellow, upper_yellow)
         self.image_pub.publish(self.bridge.cv2_to_imgmsg(image))
-        print('published')
+        print("published")
+        
 
 rospy.init_node('cv_img_sub_pub')
 cvImgSubPub = CVImgSubPub()
