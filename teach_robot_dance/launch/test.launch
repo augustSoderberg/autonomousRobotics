@@ -1,0 +1,5 @@
+<launch>
+    <node name="dancer" pkg="teach_robot_dance" type="dancer.py" output="screen"/>
+    <node name="keys" pkg="teach_robot_dance" type="key_publisher.py" output="log"/>
+    <node name="handler" pkg="teach_robot_dance" type="scan_values_handler.py" output="log"/>
+</launch>
