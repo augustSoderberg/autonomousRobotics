@@ -1,3 +1,4 @@
 <launch>
     <node name="follower_opencv" pkg="line_follower" type="follower_opencv.py" output="screen"/>
+    <!-- <node name="target_publisher" pkg="line_follower" type="target_publisher.py" output="screen"/> -->
 </launch>
