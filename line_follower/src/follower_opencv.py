@@ -9,7 +9,7 @@ class CVImgSubPub:
         self.image_pub = rospy.Publisher('masked_img', Image, queue_size=1)
 
     def image_callback(self, msg):
-        image = self.bridge.imgmsg_to_cv2(msg, encoding='bgr8')
+        image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         lower_yellow = numpy.array([50, 50, 170])
         upper_yellow = numpy.array([255, 255, 190])
