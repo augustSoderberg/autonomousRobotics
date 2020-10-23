@@ -8,7 +8,6 @@ def dist_between(ax, ay, bx, by):
     return (((bx - ax)**2) + ((by - ay)**2))**.5
 
 def find_middle_white(image, horiz):
-    print("finding middle ofline")
     horiz = int(horiz)
     found_white = False
     first_white = -1
@@ -23,17 +22,15 @@ def find_middle_white(image, horiz):
     return (last_white + first_white) // 2
 
 def find_closest_white(image):
-    print("find closest white pixel")
-    target = [BOTTOM_HORIZONTAL, IMAGE_WIDTH // 2]
+    target = [TOP_HORIZONTAL, IMAGE_WIDTH // 2]
     closest_white_x = -1
     closest_white_y = -1
-    for i in range(0, IMAGE_WIDTH, 4):
-        for j in range(0, IMAGE_HEIGHT, 4):
+    for i in range(0, IMAGE_WIDTH, 6):
+        for j in range(0, IMAGE_HEIGHT, 6):
             if (image[j, i] == WHITE and dist_between(i, j, target[1], target[0]) < 
                 dist_between(closest_white_x, closest_white_y, target[1], target[0])):
                 closest_white_y = j
                 closest_white_x = i
-    print(closest_white_x, closest_white_y)
     return (closest_white_x, closest_white_y)
 
 
@@ -64,7 +61,7 @@ class CVImgSubPub:
         else:
             self.line_found_pub.publish(True)
             self.center_pub.publish((top + bottom) // 2)
-            self.slope_pub.publish((top - bottom) / (BOTTOM_HORIZONTAL - TOP_HORIZONTAL))
+            self.slope_pub.publish((bottom - top) / (BOTTOM_HORIZONTAL - TOP_HORIZONTAL))
 
         
 

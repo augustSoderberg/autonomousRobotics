@@ -25,23 +25,18 @@ closest_white_y = -1
 
 while not rospy.is_shutdown():
     if (closest_white_x < 0):
-        print("finding")
         t.linear.x = 0
         t.angular.z = ANGULAR_SPEED
     elif (closest_white_x < IMAGE_WIDTH // 2 - EPSILON):
-        print("adjusting left")
         t.linear.x = 0
         t.angular.z = ANGULAR_SPEED
     elif (closest_white_x > IMAGE_WIDTH // 2 + EPSILON):
-        print("adjusting right")
         t.linear.x = 0
         t.angular.z = ANGULAR_SPEED * -1
     elif (closest_white_y < BOTTOM_HORIZONTAL - EPSILON):
-        print("getting closer")
         t.linear.x = LINEAR_SPEED
         t.angular.z = 0
     else:
-        print("lining up")
         t.linear.x = 0
         t.angular.z = ANGULAR_SPEED
     pub.publish(t)
