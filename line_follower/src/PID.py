@@ -12,7 +12,7 @@ def center_cb(msg):
         integral_diffs[i + 1] = integral_diffs[i]
     integral_diffs[0] = center_diff
 
-def slope_cb(msg:
+def slope_cb(msg):
     global slope
     slope = msg.data
 
