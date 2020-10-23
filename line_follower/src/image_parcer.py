@@ -58,7 +58,6 @@ class CVImgSubPub:
             self.line_found_pub.publish(True)
             self.center_pub.publish((top + bottom) // 2)
             self.slope_pub.publish((top - bottom) / (IMAGE_HEIGHT - TOP_HORIZONTAL))
-        print((top + bottom) // 2, (top - bottom) / (IMAGE_HEIGHT - TOP_HORIZONTAL))
 
     
         

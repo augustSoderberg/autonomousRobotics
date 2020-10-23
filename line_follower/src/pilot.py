@@ -18,6 +18,7 @@ def finding_twist_cb(msg):
     finding_twist = msg.data
 
 rospy.init_node('target_publisher')
+print("Starting")
 line_found_sub = rospy.Subscriber('line_found', Bool, line_found_cb)
 pid_twist_sub = rospy.Subscriber('pid_twist', Twist, pid_twist_cb)
 finding_twist_sub = rospy.Subcriber('finding_twist', Twist, finding_twist_cb)
@@ -31,10 +32,11 @@ rate = rospy.Rate(10)
 line_found = False
 
 while not rospy.is_shutdown():
+    print("In pilot")
     if (line_found):
         t = pid_twist
     else:
         t = finding_twist
     vel_pub.publish(t)
-    print(t.linear, t.angular)
+    print(t.linear.x, t.angular.z)
     rate.sleep()

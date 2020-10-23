@@ -1,6 +1,6 @@
 <launch>
-    <node name="image_parcer" pkg="line_follower" type="image_parcer.py" output="screen"/>
+    <node name="image_parcer" pkg="line_follower" type="image_parcer.py" output="log"/>
     <node name="pilot" pkg="line_follower" type="pilot.py" output="screen"/>
-    <node name="line_finder" pkg="line_follower" type="line_finder.py" output="screen"/>
-    <node name="PID" pkg="line_follower" type="PID.py" output="screen"/>
+    <node name="line_finder" pkg="line_follower" type="line_finder.py" output="log"/>
+    <node name="PID" pkg="line_follower" type="PID.py" output="log"/>
 </launch>

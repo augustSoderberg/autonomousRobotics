@@ -28,7 +28,7 @@ slope = 0
 integral_diffs = [0.0]*INTEGRAL_MEMORY_LENGTH
 
 while not rospy.is_shutdown():
-    t.linear = LINEAR_SPEED
-    t.angular = ANGULAR_SPEED*(P_TUNER*(center_diff) + I_TUNER*sum(integral_diffs)/len(integral_diffs) + D_TUNER*slope)
+    t.linear.x = LINEAR_SPEED
+    t.angular.z = ANGULAR_SPEED*(P_TUNER*(center_diff) + I_TUNER*sum(integral_diffs)/len(integral_diffs) + D_TUNER*slope)
     pub.publish(t)
     rate.sleep()

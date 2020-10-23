@@ -20,16 +20,16 @@ closest_white = [-1, -1]
 
 while not rospy.is_shutdown():
     if (closest_white[0] < 0):
-        t.linear = 0
-        t.angular = ANGULAR_SPEED
+        t.linear.x = 0
+        t.angular.z = ANGULAR_SPEED
     elif (closest_white[1] < IMAGE_WIDTH // 2 - EPSILON):
-        t.linear = 0
-        t.angular = ANGULAR_SPEED
+        t.linear.x = 0
+        t.angular.z = ANGULAR_SPEED
     elif (closest_white[1] > IMAGE_WIDTH // 2 + EPSILON):
-        t.linear = 0
-        t.angular = ANGULAR_SPEED * -1
+        t.linear.x = 0
+        t.angular.z = ANGULAR_SPEED * -1
     else:
-        t.linear = LINEAR_SPEED
-        t.angular = 0
+        t.linear.x = LINEAR_SPEED
+        t.angular.z = 0
     pub.publish(t)
     rate.sleep()
