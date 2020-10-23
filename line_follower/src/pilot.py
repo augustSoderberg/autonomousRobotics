@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+# August Soderberg
+# asoderberg@brandeis.edu
+# Autonomous Robotics
+# PA - Line Follower
+# 10/23/2020
+
 import rospy
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
@@ -31,8 +37,10 @@ line_found = False
 
 while not rospy.is_shutdown():
     if (line_found):
+        #Use twist from PID
         t = pid_twist
     else:
+        #Use twist from the special line_finder node
         t = finding_twist
     vel_pub.publish(t)
     rate.sleep()
