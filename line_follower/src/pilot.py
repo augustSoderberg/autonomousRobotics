@@ -36,4 +36,5 @@ while not rospy.is_shutdown():
     else:
         t = finding_twist
     vel_pub.publish(t)
+    print(t.linear, t.angular)
     rate.sleep()
