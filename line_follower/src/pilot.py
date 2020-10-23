@@ -30,9 +30,10 @@ finding_twist = Twist()
 rate = rospy.Rate(10)
 line_found = False
 
-while not rospy.isShutdown():
+while not rospy.is_shutdown():
     if (line_found):
         t = pid_twist
     else:
         t = finding_twist
     vel_pub.publish(t)
+    rate.sleep()
