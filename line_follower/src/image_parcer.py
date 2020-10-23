@@ -8,29 +8,33 @@ def dist_between(ax, ay, bx, by):
     return (((bx - ax)**2) + ((by - ay)**2))**.5
 
 def find_middle_white(image, horiz):
-        horiz = int(horiz)
-        found_white = False
-        first_white = -1
-        last_white = -1
-        for i in range(0, IMAGE_WIDTH):
-            if image[horiz, i] == WHITE:
-                if not found_white:
-                    first_white = i
-                    found_white = True
-                else:
-                    last_white = i 
-        return (last_white + first_white) // 2
+    print("finding middle ofline")
+    horiz = int(horiz)
+    found_white = False
+    first_white = -1
+    last_white = -1
+    for i in range(0, IMAGE_WIDTH):
+        if image[horiz, i] == WHITE:
+            if not found_white:
+                first_white = i
+                found_white = True
+            else:
+                last_white = i 
+    return (last_white + first_white) // 2
 
 def find_closest_white(image):
-    target = [IMAGE_HEIGHT - 1, IMAGE_WIDTH // 2]
-    closest_white = (-1, -1)
-    for i in range(0, IMAGE_WIDTH):
-        for j in range(0, IMAGE_HEIGHT):
+    print("find closest white pixel")
+    target = [BOTTOM_HORIZONTAL, IMAGE_WIDTH // 2]
+    closest_white_x = -1
+    closest_white_y = -1
+    for i in range(0, IMAGE_WIDTH, 4):
+        for j in range(0, IMAGE_HEIGHT, 4):
             if (image[j, i] == WHITE and dist_between(i, j, target[1], target[0]) < 
-                dist_between(closest_white[1], closest_white[0], target[1], target[0])):
-                closest_white[1] = j
-                closest_white[0] = i
-    return closest_white
+                dist_between(closest_white_x, closest_white_y, target[1], target[0])):
+                closest_white_y = j
+                closest_white_x = i
+    print(closest_white_x, closest_white_y)
+    return (closest_white_x, closest_white_y)
 
 
 
@@ -51,7 +55,7 @@ class CVImgSubPub:
         upper_yellow = numpy.array([50, 255, 255])
         image = cv2.inRange(image, lower_yellow, upper_yellow)
         top = find_middle_white(image, TOP_HORIZONTAL)
-        bottom = find_middle_white(image, IMAGE_HEIGHT - 1)
+        bottom = find_middle_white(image, BOTTOM_HORIZONTAL)
         if (top == -1 or bottom == -1):
             self.line_found_pub.publish(False)
             closest_white = find_closest_white(image)
@@ -60,9 +64,8 @@ class CVImgSubPub:
         else:
             self.line_found_pub.publish(True)
             self.center_pub.publish((top + bottom) // 2)
-            self.slope_pub.publish((top - bottom) / (IMAGE_HEIGHT - TOP_HORIZONTAL))
+            self.slope_pub.publish((top - bottom) / (BOTTOM_HORIZONTAL - TOP_HORIZONTAL))
 
-    
         
 
 rospy.init_node('image_parcer')
