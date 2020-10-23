@@ -62,7 +62,7 @@ class CVImgSubPub:
     
         
 
-rospy.init_node('cv_img_sub_pub')
+rospy.init_node('image_parcer')
 cvImgSubPub = CVImgSubPub()
 rospy.spin()
         

@@ -10,6 +10,7 @@ def line_found_cb(msg):
     line_found = msg.data
 
 def pid_twist_cb(msg):
+    print("message received")
     global pid_twist
     pid_twist = msg.data
 
@@ -17,7 +18,7 @@ def finding_twist_cb(msg):
     global finding_twist
     finding_twist = msg.data
 
-rospy.init_node('target_publisher')
+rospy.init_node('pilot')
 print("Starting")
 line_found_sub = rospy.Subscriber('line_found', Bool, line_found_cb)
 pid_twist_sub = rospy.Subscriber('pid_twist', Twist, pid_twist_cb)

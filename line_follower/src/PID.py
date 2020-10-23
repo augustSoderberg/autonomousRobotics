@@ -16,7 +16,7 @@ def slope_cb(msg):
     global slope
     slope = msg.data
 
-rospy.init_node('pid')
+rospy.init_node('PID')
 pub = rospy.Publisher('pid_twist', Twist, queue_size=1)
 center_sub = rospy.Subscriber('center', Int32, center_cb)
 slope_sub = rospy.Subscriber('slope', Float64, slope_cb)
