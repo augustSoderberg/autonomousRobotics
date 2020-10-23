@@ -3,26 +3,23 @@ import rospy
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from constants import *
-from image_parcer import dist_between
 
 def line_found_cb(msg):
     global line_found
     line_found = msg.data
 
 def pid_twist_cb(msg):
-    print("message received")
     global pid_twist
-    pid_twist = msg.data
+    pid_twist = msg
 
 def finding_twist_cb(msg):
     global finding_twist
-    finding_twist = msg.data
+    finding_twist = msg
 
 rospy.init_node('pilot')
-print("Starting")
 line_found_sub = rospy.Subscriber('line_found', Bool, line_found_cb)
 pid_twist_sub = rospy.Subscriber('pid_twist', Twist, pid_twist_cb)
-finding_twist_sub = rospy.Subcriber('finding_twist', Twist, finding_twist_cb)
+finding_twist_sub = rospy.Subscriber('finding_twist', Twist, finding_twist_cb)
 vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
 
 
@@ -33,7 +30,6 @@ rate = rospy.Rate(10)
 line_found = False
 
 while not rospy.is_shutdown():
-    print("In pilot")
     if (line_found):
         t = pid_twist
     else:
