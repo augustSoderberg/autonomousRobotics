@@ -1,4 +1,0 @@
-<launch>
-    <node name="driver" pkg="emma" type="driver.py" output="screen"/>
-    <node name="lidar_helper" pkg="emma" type="lidar_helper.py" output="screen"/>
-</launch>
