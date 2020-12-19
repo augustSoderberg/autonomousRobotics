@@ -1,0 +1,6 @@
+<launch>
+    <node name="driver" pkg="race_track" type="driver.py" output="screen"/>
+    <node name="image_parser" pkg="race_track" type="image_parser.py" output="log"/>
+    <node name="lidar" pkg="race_track" type="lidar.py" output="log"/>
+    <node name="PID" pkg="race_track" type="PID.py" output="log"/>
+</launch>
