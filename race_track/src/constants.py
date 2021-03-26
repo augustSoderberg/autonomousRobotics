@@ -10,8 +10,8 @@
 TIME_STEP = 0.1
 
 #Max speeds of robot
-LINEAR_SPEED = 0.6
-ANGULAR_SPEED = 0.4
+LINEAR_SPEED = 2
+ANGULAR_SPEED = 1
 
 #Used for PID controller
 MEMORY_LENGTH = 10

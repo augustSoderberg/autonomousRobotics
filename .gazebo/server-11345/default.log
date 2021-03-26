@@ -1,0 +1,31 @@
+Gazebo multi-robot simulator, version 9.0.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1616167360 738443774) [Msg] Waiting for master.
+(1616167360 741545719) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1616167360 741567330) [Msg] Publicized address: 10.42.0.62
+(1616167363 71122640) [Err] [OpenAL.cc:84] Unable to open audio device[default]
+ Audio will be disabled.
+(1616167363 192917245) Init world[default]
+(1616167364 246106011) applying Gaussian noise model with mean 0, stddev 0.01, bias 0
+(1616167364 251363157) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167364 575711026) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167364 578936724) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167364 581991130) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167367 642784565) [Wrn] [Publisher.cc:141] Queue limit reached for topic /gazebo/default/pose/local/info, deleting message. This warning is printed only once.
+(1616167649 766616717) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167649 767228791) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167654 988978484) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167740 354454303) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167740 354861391) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167742 370046994) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167753 635521551) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167753 635964135) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167755 641398915) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167768 518798978) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167768 519186969) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616167770 328374167) [Wrn] [msgs.cc:1852] Conversion of sensor type[depth] not supported.
+(1616168828 992720789) [Wrn] [Publisher.cc:141] Queue limit reached for topic /gazebo/default/physics/contacts, deleting message. This warning is printed only once.

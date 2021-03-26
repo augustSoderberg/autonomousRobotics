@@ -1,0 +1,24 @@
+Gazebo multi-robot simulator, version 9.0.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1616167360 880594437) [Msg] Waiting for master.
+(1616167360 891353110) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1616167360 891409587) [Msg] Publicized address: 10.42.0.62
+(1616167360 891899289) Loaded .ini file from: "/my_ros_data/.gazebo/gui.ini"
+(1616167361 68455525) [Wrn] [GuiIface.cc:120] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+(1616167362 156552291) [Err] [Node.cc:105] No namespace found
+(1616167363 159889198) [Err] [Node.cc:105] No namespace found
+(1616167363 172744112) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace"
+(1616167363 172859068) model.config file is missing in directory["/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace"]
+(1616167363 172950661) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace_2020"
+(1616167363 173071098) model.config file is missing in directory["/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_autorace_2020"]
+(1616167363 173253882) [Err] [InsertModelWidget.cc:405] Missing model.config for model "/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_common_meshes"
+(1616167363 173434753) model.config file is missing in directory["/my_ros_data/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_common_meshes"]
+(1616167363 583291000) [Wrn] [Event.cc:61] Warning: Deleting a connection right after creation. Make sure to save the ConnectionPtr from a Connect call
+(1616167363 585969346) [Err] [ModelDatabase.cc:390] Unable to parse model.config for model[http://gazebosim.org/models/bin_4_dropping_task]
+(1616167363 892571675) No spacenav daemon found. Spacenav functionality is disabled
+(1616167751 821895589) [Err] [JointControlWidget.cc:400] Error advertising topic [/aws_robomaker_racetrack_Track_05_00/joint_cmd]
+(1616167768 466817415) [Err] [JointControlWidget.cc:400] Error advertising topic [/turtlebot3_waffle/joint_cmd]
