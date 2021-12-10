@@ -1,0 +1,6 @@
+<launch>
+    <!-- <node name="pilot" pkg="line_follower" type="pilot.py" output="screen"/> -->
+    <node name="gps_faker" pkg="gps_line_follower" type="gps_faker.py" output="screen"/>
+    <node name="line_finder" pkg="gps_line_follower" type="line_finder.py" output="screen"/>
+    <!-- <node name="PID" pkg="line_follower" type="PID.py" output="screen"/> -->
+</launch>
