@@ -7,7 +7,7 @@
 
 import rospy, csv, serial, time, os, sys
 from constants import *
-from std_msgs.msg import Int32, Float64, Bool
+from std_msgs.msg import Int32, Float64MultiArray, Bool
 
 
 def readString():
@@ -53,7 +53,9 @@ def pubGGA(lines, pub):
     latlng = getLatLng(lines[2],lines[4])
     # print("Lat,Long: ", latlng[0], lines[3], ", ", latlng[1], lines[5], sep='')
     # print("Fix quality (0 = invalid, 1 = fix, 2..8):", lines[6])
-    pub.publish([latlng[0], latlng[1], lines[6]])
+    array = Float64MultiArray()
+    array.data = [latlng[0], latlng[1], lines[6]]
+    pub.publish(array)
     #print("Satellites:", lines[7].lstrip("0"))
     #print("Horizontal dilution:", lines[8])
     #print("Altitude: ", lines[9], lines[10],sep="")
@@ -137,7 +139,7 @@ def checksum(line):
 
 rospy.init_node('gps_parcer')
 
-gps_pub = rospy.Publisher('gps_data', Float64[], queue_size=1)
+gps_pub = rospy.Publisher('gps_data', Float64MultiArray, queue_size=1)
 
 if os.geteuid() != 0: # Source: https://gist.github.com/davejamesmiller/1965559
     os.execvp("sudo", ["sudo"] + sys.argv)
